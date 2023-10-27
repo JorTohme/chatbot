@@ -214,11 +214,12 @@ Los alumnos podrán solicitar beca, a cuyo efecto, acompañarán a su pedido par
 Una vez reunidos los requisitos, deberán completar, firmar y adjuntar el formulario junto a la documentación solicitada. El límite de presentación será hasta el 20 de marzo de cada año.
 `,
   becaInvestigacion: 'Los alumnos que participan en proyectos de investigación subsidiados de la facultad tienen becas de incentivos.',
-  solicitudBecas: `https://www.uda.edu.ar/images/Medicas/Solicitud_Beca_hijo_de_personal.pdf
-                   https://www.uda.edu.ar/images/Medicas/solicitud-beca-hermanos-y-conyuge.pdf
-                   https://www.uda.edu.ar/images/Medicas/solicitud-beca-ayuda-economica.pdf`,
-  fechaImportanteBecas: 'Para solicitar una beca, debe completar el formulario de solicitud de la beca deseada y enviarlo al correo electrónico de secretaría entre los días 13 y 20 de marzo. El correo de secretaría es: secretariafcsa@uda.edu.ar',
-  beneficiosBecas: `“Beca hijo personal”: ¼ beca(medicina), ½ beca(demás)
+  solicitudBecas: `
+  Para solicitar una beca, debe completar el formulario de solicitud de la beca deseada y enviarlo al correo electrónico de secretaría entre los días 13 y 20 de marzo. El correo de secretaría es: secretariafcsa@uda.edu.ar
+https://www.uda.edu.ar/images/Medicas/Solicitud_Beca_hijo_de_personal.pdf
+https://www.uda.edu.ar/images/Medicas/solicitud-beca-hermanos-y-conyuge.pdf
+https://www.uda.edu.ar/images/Medicas/solicitud-beca-ayuda-economica.pdf`,
+  beneficiosBecas: `“Beca hijo personal”: ¼ beca (medicina), ½ beca (demás carreras)
 “Beca ayuda económica”: ¼ beca
 “Beca Estímulo”: Completa
 “Beca Hermanos y Cónyuge”: ¼ beca

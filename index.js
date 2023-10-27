@@ -1,6 +1,6 @@
 import qrcode from 'qrcode-terminal'
 import { Client } from 'whatsapp-web.js'
-import { MESSAGES, infoCuotas, infoBecas, infoCarreras, infoPre, infoLicenciaturaInformatica } from './messages/messages.js'
+import { MESSAGES, infoCuotas, infoBecas, infoCarreras, infoPre, infoLicenciaturaInformatica, horariosAtencion } from './messages/messages.js'
 
 import { formatearBody, staticDataPath, formatNumber } from './functions/helper.js'
 
@@ -49,6 +49,7 @@ client.on('message', message => {
     numerosUsados.push(message.from)
   }
 
+
   if (
     formatearBody(message.body).includes('carreras') ||
       formatearBody(message.body).includes('carrera')
@@ -71,12 +72,20 @@ client.on('message', message => {
   }
 
   if (
+    formatearBody(message.body).includes('ubicación') ||
+      formatearBody(message.body).includes('ubicacion')
+  ) {
+    responder(message, MESSAGES.infoUbicacion)
+  }
+
+  if (
     formatearBody(message.body).includes('beca') ||
       formatearBody(message.body).includes('becas')
   ) {
     responder(message, MESSAGES.infoBecas)
   }
 
+  //infoCarreras
   if (
     formatearBody(message.body).includes('comercio internacional')
   ) {
@@ -113,10 +122,12 @@ client.on('message', message => {
     responder(message, infoCarreras.infoTurismo)
   }
 
+  //infoCuotas
   if (
-    formatearBody(message.body).includes('montos')
+    formatearBody(message.body).includes('montos') ||
+    formatearBody(message.body).includes('precio')
   ) {
-    responder(message, infoCarreras.infoMontos)
+    responder(message, infoCuotas.infoMontos)
   }
 
   if (
@@ -125,6 +136,111 @@ client.on('message', message => {
     responder(message, infoCuotas.infoMediosDePago)
   }
 
+  //infoPre
+  if (
+    formatearBody(message.body).includes('pre') &&
+    formatearBody(message.body).includes('fechas')
+  ) {
+    responder(message, infoPre.infoFechasPre)
+  }
+
+  if (
+    formatearBody(message.body).includes('pre') &&
+    formatearBody(message.body).includes('modalidad')
+  ) {
+    responder(message, infoPre.infoModalidadPre)
+  }
+
+  if (
+    formatearBody(message.body).includes('pre') &&
+    (formatearBody(message.body).includes('monto') || formatearBody(message.body).includes('montos'))
+  ) {
+    responder(message, infoPre.infoMontosPre)
+  }
+
+  //horariosAtencion
+  if (
+    formatearBody(message.body).includes('horarios') &&
+    (formatearBody(message.body).includes('atencion') || formatearBody(message.body).includes('atención')) &&
+    (formatearBody(message.body).includes('secretaria') || formatearBody(message.body).includes('secretaría'))
+  ) {
+    responder(message, horariosAtencion.horariosSecretaria)
+  }
+
+  if (
+    formatearBody(message.body).includes('horarios') &&
+    (formatearBody(message.body).includes('atencion') || formatearBody(message.body).includes('atención')) &&
+    (formatearBody(message.body).includes('tesoreria') || formatearBody(message.body).includes('tesorería'))
+  ) {
+    responder(message, horariosAtencion.horariosTesoreria)
+  }
+
+  if (
+    formatearBody(message.body).includes('horarios') &&
+    (formatearBody(message.body).includes('atencion') || formatearBody(message.body).includes('atención')) &&
+    (formatearBody(message.body).includes('nuevos ingresantes'))
+  ) {
+    responder(message, horariosAtencion.horariosNuevosIngresantes)
+  }
+
+  //infoBecas
+  if (
+    formatearBody(message.body).includes('becas') &&
+    (formatearBody(message.body).includes('tipo') || formatearBody(message.body).includes('tipos'))
+  ) {
+    responder(message, infoBecas.tiposBeca)
+  }
+
+  if (
+    formatearBody(message.body).includes('beca') &&
+    (formatearBody(message.body).includes('estimulo') || formatearBody(message.body).includes('estímulo'))
+  ) {
+    responder(message, infoBecas.becaEstimulo)
+  }
+
+  if (
+    formatearBody(message.body).includes('becas') &&
+    (formatearBody(message.body).includes('asistencia económica') || formatearBody(message.body).includes('asistencia economica'))
+  ) {
+    responder(message, infoBecas.becaAsitenciaEconomica)
+  }
+
+  if (
+    formatearBody(message.body).includes('becas') &&
+    (formatearBody(message.body).includes('hijo')) &&
+    (formatearBody(message.body).includes('personal'))
+  ) {
+    responder(message, infoBecas.becaHijoPersonal)
+  }
+
+  if (
+    formatearBody(message.body).includes('becas') &&
+    (formatearBody(message.body).includes('pariente') || formatearBody(message.body).includes('parientes'))
+  ) {
+    responder(message, infoBecas.becaParientes)
+  }
+
+  if (
+    formatearBody(message.body).includes('becas') &&
+    (formatearBody(message.body).includes('investigación') || formatearBody(message.body).includes('investigacion'))
+  ) {
+    responder(message, infoBecas.becaInvestigacion)
+  }
+
+  if (
+    formatearBody(message.body).includes('becas') &&
+    (formatearBody(message.body).includes('solicitud'))
+  ) {
+    responder(message, infoBecas.solicitudBecas)
+  }
+
+  if (
+    formatearBody(message.body).includes('becas') &&
+    (formatearBody(message.body).includes('beneficio')) || (formatearBody(message.body).includes('beneficios'))
+  ) {
+    responder(message, infoBecas.beneficiosBecas)
+  }
+  
   // mensaje default si no entiende
   // responder(message, 'No te entiendo un pingo')
 })
