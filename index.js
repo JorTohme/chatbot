@@ -240,9 +240,7 @@ client.on('message', message => {
   ) {
     responder(message, infoBecas.beneficiosBecas)
   }
-  
-  // mensaje default si no entiende
-  // responder(message, 'No te entiendo un pingo')
+
 })
 
 client.initialize()
